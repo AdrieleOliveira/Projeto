@@ -11,6 +11,13 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
@@ -129,7 +136,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xampp/htdocs/Coonagro-Chamado" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -151,7 +159,7 @@
       <workItem from="1604013370650" duration="474000" />
       <workItem from="1604014048779" duration="626000" />
       <workItem from="1604015403247" duration="772000" />
-      <workItem from="1604095079111" duration="1056000" />
+      <workItem from="1604095079111" duration="8082000" />
     </task>
     <servers />
   </component>
@@ -167,6 +175,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="441" y="159" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1604095310529" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1604097709871">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604097709871" />
     <state width="1323" height="168" key="GridCell.Tab.0.bottom" timestamp="1604095398726">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
