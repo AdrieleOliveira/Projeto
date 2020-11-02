@@ -15,8 +15,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -129,6 +133,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jZYyqcyIVUBQ8sK7kD0lR6cWNy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -136,9 +141,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xampp/htdocs/Coonagro-Chamado" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/Documentos" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -160,6 +166,9 @@
       <workItem from="1604014048779" duration="626000" />
       <workItem from="1604015403247" duration="772000" />
       <workItem from="1604095079111" duration="8082000" />
+      <workItem from="1604156363515" duration="3393000" />
+      <workItem from="1604244071421" duration="5191000" />
+      <workItem from="1604357863014" duration="2275000" />
     </task>
     <servers />
   </component>
@@ -175,10 +184,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="441" y="159" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1604095310529" />
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1604097709871">
+    <state x="145" y="41" key="#com.intellij.ide.util.MemberChooser" timestamp="1604247522606">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604097709871" />
+    <state x="145" y="41" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1604247522606" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1604358190961">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604358190961" />
     <state width="1323" height="168" key="GridCell.Tab.0.bottom" timestamp="1604095398726">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -195,6 +208,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="168" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1604095398726" />
+    <state x="146" y="79" key="NewPhpClassDialog" timestamp="1604246142421">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="146" y="79" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1604246142421" />
+    <state x="176" y="292" key="NewPhpFileDialog" timestamp="1604244518473">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="176" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1604244518473" />
     <state x="184" y="14" key="SettingsEditor" timestamp="1604015033207">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
