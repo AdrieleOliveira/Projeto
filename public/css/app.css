@@ -10903,3 +10903,61 @@ a.text-dark:focus {
   }
 }
 
+/*------------------------------------------------------------*/
+
+body{
+    background-color: white;
+}
+
+.navbar-brand img{
+    width: 50px;
+    padding: 0;
+}
+
+.bg-white{
+    background-color: #f7f7f7 !important;
+}
+
+.dropdown-menu{
+    background-color: #f5f3f9;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.title h5{
+    margin: 0;
+    color: #424040;
+    font-size: 1.0rem;
+}
+
+.card {
+    border:0;
+   /* border-top: 2px solid #8f2f85;;*/
+    border-radius: 0 !important;
+}
+
+.button-plus{
+    background: #f2e52b;
+    width: 50px;
+    font-size: 15px;
+}
+
+.table-responsive{
+    margin-top: 20px;
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+.table-responsive th, .table-responsive td{
+    text-align: center;
+}
+

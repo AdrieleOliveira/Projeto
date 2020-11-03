@@ -28,7 +28,11 @@ class Repository implements RepositoryInterface
     {
         $record = $this->model->find($id);
 
-        return $record->update($data);
+        if($record != null){
+            return $record->update($data);
+        } else {
+            return false;
+        }
     }
 
     public function delete($id)

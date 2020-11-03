@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     protected $model;
 
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::PRODUCT;
 
     public function __construct(User $user)
     {
@@ -38,9 +38,9 @@ class LoginController extends Controller
             return redirect()->back()->withInput()->with('error', 'Usuário ou senha incorretos!');
         } else {
             $result = $result->first();
-            Auth::login($result);
+            Auth::login($result, true);
 
-            return redirect()->route('home');
+            return redirect()->route('produto-inicial');
         }
     }
 }
