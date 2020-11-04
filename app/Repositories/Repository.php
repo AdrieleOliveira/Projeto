@@ -30,19 +30,25 @@ class Repository implements RepositoryInterface
 
         if($record != null){
             return $record->update($data);
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function delete($id)
     {
-        return $this->model->destroy($id);
+        $record = $this->model->find($id);
+
+        if($record != null){
+            return $this->model->destroy($id);
+        }
+
+        return false;
     }
 
     public function show($id)
     {
-        return $this->model->findOrFail($id);
+        return $this->model->find($id);
     }
 
     public function getModel(){

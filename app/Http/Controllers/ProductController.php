@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Repositories\Repository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,10 @@ class ProductController extends Controller
     }
 
     public function showPage(){
-        return view('product.index');
+        $id = Auth::user()->getAuthIdentifier();
+        $products = $this->model->where(['user_id' => $id], 'description');
+
+        return view('product.index', compact('products'));
     }
 
     public function index($id){
@@ -28,28 +32,49 @@ class ProductController extends Controller
     public function store(Request $request){
         $data = $request->only($this->model->getModel()->getFillable());
 
-        return response()->json(($this->model->create($data)));
+        $data['price'] = $this->replaceValue($data['price']);
+
+        return response()->json(($this->model->create($data)), 201);
     }
 
     public function update(Request $request, $id){
         $data = $request->only($this->model->getModel()->getFillable());
 
-        if($this->model->update($data, $id)){
-            return response()->json(['message' => 'ok']);
-        } else {
-            return response()->json(['message' => 'error']);
+        $result = $this->model->update($data, $id);
+        if(!$result){
+            return response()->json([
+                'message'   => 'Record not found',
+            ], 404);
         }
+
+        return response()->json($result);
     }
 
     public function show($produto_id){
-        return response()->json($this->model->show($produto_id));
+        $product = $this->model->show($produto_id);
+
+        if(!$product){
+            return response()->json([
+                'message'   => 'Record not found',
+            ], 404);
+        }
+
+        return response()->json($product);
     }
 
     public function destroy($produto_id){
-        if($this->model->delete($produto_id)){
-            return response()->json(['message' => 'ok']);
-        } else {
-            return response()->json(['message' => 'error']);
+        $result = $this->model->delete($produto_id);
+
+        if(!$result){
+            return response()->json([
+                'message'   => 'Record not found',
+            ], 404);
         }
+
+        return response()->json($result);
+    }
+
+    public function replaceValue($valor){
+        return str_replace(',', '.', $valor);
     }
 }

@@ -10915,40 +10915,32 @@ body{
 }
 
 .bg-white{
-    background-color: #f7f7f7 !important;
+    background-color: #f3f3f3e0 !important;
 }
 
 .dropdown-menu{
     background-color: #f5f3f9;
 }
 
-.title{
+#navbarDropdown{
+    font-weight: 600;
+}
+
+.card-header{
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.title img{
+.icon-title{
     width: 40px;
     margin-right: 10px;
 }
 
-.title h5{
-    margin: 0;
-    color: #424040;
-    font-size: 1.0rem;
-}
-
 .card {
-    border:0;
-   /* border-top: 2px solid #8f2f85;;*/
+    border: 0;
+    /* border-top: 2px solid #8f2f85;;*/
     border-radius: 0 !important;
-}
-
-.button-plus{
-    background: #f2e52b;
-    width: 50px;
-    font-size: 15px;
 }
 
 .table-responsive{
@@ -10959,5 +10951,45 @@ body{
 
 .table-responsive th, .table-responsive td{
     text-align: center;
+}
+
+.card-title h5{
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+.card-title img{
+    width: 15px;
+}
+
+.card-title{
+    font-family: 'Roboto Slab', sans-serif;
+    background: transparent;
+    color: #183990;
+    border: 0;
+    margin-bottom: 5px;
+}
+
+.button-yellow{
+    background-color: #f2e52b;
+    color: #525050;
+}
+
+.conteudo .card-body{
+    border-top: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #fd83ee 0, #e876f0 12.5%, #ce69f1 25%, #b05df2 37.5%, #8953f2 50%, #534bf2 62.5%,
+    #0047f3 75%, #0045f3 87.5%, #0044f2 100%);
+}
+
+.modal-title{
+    color: #00227a;
+    font-weight: 600;
+}
+
+.icon-table{
+    cursor: pointer;
 }
 
