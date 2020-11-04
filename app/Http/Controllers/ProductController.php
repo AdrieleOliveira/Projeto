@@ -41,6 +41,7 @@ class ProductController extends Controller
         $data = $request->only($this->model->getModel()->getFillable());
 
         $result = $this->model->update($data, $id);
+
         if(!$result){
             return response()->json([
                 'message'   => 'Record not found',

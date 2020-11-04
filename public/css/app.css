@@ -10906,7 +10906,7 @@ a.text-dark:focus {
 /*------------------------------------------------------------*/
 
 body{
-    background-color: white;
+    background-color: #d8e0e6;
 }
 
 .navbar-brand img{
@@ -10915,7 +10915,7 @@ body{
 }
 
 .bg-white{
-    background-color: #f3f3f3e0 !important;
+    background-color: #fffafae0 !important;
 }
 
 .dropdown-menu{
@@ -10972,9 +10972,14 @@ body{
     margin-bottom: 5px;
 }
 
-.button-yellow{
-    background-color: #f2e52b;
-    color: #525050;
+.button-blue{
+    background: #2d5275;
+    color: white;
+}
+
+.button-blue:hover{
+    background: #4d85bb;
+    color: white;
 }
 
 .conteudo .card-body{
@@ -10985,11 +10990,31 @@ body{
 }
 
 .modal-title{
-    color: #00227a;
+    color: white;
     font-weight: 600;
+}
+
+.modal-header{
+    background-color: #2d5275;
 }
 
 .icon-table{
     cursor: pointer;
+}
+
+label{
+    margin-top: 10px;
+}
+
+.modal-footer{
+    background-color: #eaecef;
+}
+
+.btn-success{
+    background-color: #07bd54;
+}
+
+.btn-secondary{
+    background-color: #484848;
 }
 

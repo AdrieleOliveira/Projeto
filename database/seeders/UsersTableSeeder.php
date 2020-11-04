@@ -11,11 +11,10 @@ class UsersTableSeeder extends Seeder
 {
     public function run()
     {
-
         $token = Str::random(60);
 
         DB::table('users')->insert([
-            'name' => 'hipe',
+            'name' => 'Hipe',
             'email' => 'teste@gmail.com',
             'password' => 'hipe@2020',
             'created_at' => date("Y-m-d H:i:s"),

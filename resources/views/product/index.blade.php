@@ -9,23 +9,8 @@
             <div class="card-body">
 
                 <div class="row">
-
-                    <div class="col-lg-8 col-sm-6">
-                        <input type="text"
-                               list="products"
-                               class="form-control"
-                               autocomplete="on"
-                               placeholder="Buscar">
-
-                        <datalist id="products">
-                            @foreach ($products as $product)
-                                <option value="{{ $product['description'] }}">
-                            @endforeach
-                        </datalist>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <button type="button" class="btn btn-block button-yellow" onclick="criar()">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-block button-blue" onclick="criar()">
                             <b>Novo Produto</b>
                         </button>
                     </div>
@@ -42,26 +27,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if(count($products) == 0)
-                                <tr>
-                                    <td colspan="3">Nenhum item cadastrado</td>
+                            @foreach($products as $product)
+                                <tr id="{{$product->id}}">
+                                    <td>{{$product->description}}</td>
+                                    <td>R$ {{number_format($product->price, 2, ',', '.')}}</td>
+                                    <td>
+                                        <a nohref class="icon-table" onclick="editar('{{$product->id}}')" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a nohref class="icon-table" onclick="remover('{{$product->id}}')" title="Remover">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
                                 </tr>
-                            @else
-                                @foreach($products as $product)
-                                    <tr>
-                                        <td>{{$product->description}}</td>
-                                        <td>R$ {{number_format($product->price, 2, ',', '.')}}</td>
-                                        <td>
-                                            <a nohref class="icon-table" onclick="editar('{{$product->id}}')" title="Editar">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <a nohref class="icon-table" onclick="remover('{{$product->id}}')" title="Remover">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @endif
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -120,6 +99,29 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal" tabindex="-1" role="dialog" id="modalRemove">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form class="form-horizontal" id="formRemove">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Remoção de Produto</h5>
+                        </div>
+
+                        <div class="modal-body">
+                            <input type="hidden" id="id_remove" class="form-control">
+
+                            Deseja realmente remover o produto?
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-salvar btn-success">Sim</button>
+                            <button type="cancel" class="btn btn-cancelar btn-secondary" data-dismiss="modal">Não</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -140,13 +142,47 @@
             $('#modalProduto').modal('show');
         }
 
+        function editar(id){
+            $.getJSON('/api/produto/' + id, function (data){
+                $('#id').val(data.id);
+                $('#description').val(data.description);
+                $('#price').val(parseFloat(data.price).toFixed(2));
+
+                $('#modalProduto').modal().find('.modal-title').text("Alteração de Produto");
+                $('#modalProduto').modal('show');
+            });
+        }
+
+        function remover(id){
+            $('#modalRemove').modal('show');
+
+            $('#id_remove').val(id);
+        }
+
+        $('#formRemove').submit(function (event){
+            event.preventDefault();
+
+            let id = $('#id_remove').val();
+
+            $.ajax({
+                type: "DELETE",
+                url: "/api/produto/" + id,
+                context: this,
+                success: function (){
+                    $(`#${id}`).remove();
+                }
+            })
+
+            $('#modalRemove').modal('hide');
+        })
+
         $('#formProduto').submit(function (event){
             event.preventDefault();
 
             let id = $('#id').val();
 
             if(id !== ''){
-                console.log("update");
+                update(id);
             } else {
                 insert();
             }
@@ -161,21 +197,41 @@
                 user_id: $('#user').val()
             }
 
-            console.log(product);
-
             $.post("api/produto", product, function (data){
                 let line = getLin(data);
                 $('#table>tbody').append(line);
             })
         }
 
+        function update(id){
+            let product = {
+                description: $('#description').val(),
+                price: $('#price').val(),
+            }
+
+            $.ajax({
+                type: "PUT",
+                url: "/api/produto/" + id,
+                context: this,
+                data: product,
+                success: function (){
+                    let linha = $(`#${id}`);
+
+                    if(linha){
+                        linha[0].cells[0].textContent = product.description;
+                        linha[0].cells[1].textContent = parseFloat(product.price).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+                    }
+                }
+            })
+        }
+
         function getLin(product){
             let line;
 
-            line = `<tr>`;
-                line += `<td>${product.description}</td>`;
-                line += `<td>${parseFloat(product.price).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>`;
-                line += `<td>
+            line = `<tr id="${product.id}">`;
+            line += `<td>${product.description}</td>`;
+            line += `<td>${parseFloat(product.price).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>`;
+            line += `<td>
                             <a nohref class="icon-table" onclick="editar('${product.id}')" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </a>
